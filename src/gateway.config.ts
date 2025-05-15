@@ -5,12 +5,16 @@ export class GatewayConfig implements IRoutingConfig {
   build(builder: ProxyModuleBuilder): DynamicModule {
     return builder
       .httpRoute({
-        route: "/user/*path",
+        route: "/user{/*path}",
         service: "user",
       })
       .httpRoute({
-        route: "/auth/*path",
-        service: "user",
+        route: "/auth{/*path}",
+        service: "auth",
+      })
+      .httpRoute({
+        route: "/media{/*path}",
+        service: "media",
       })
       .build();
   }
