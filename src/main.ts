@@ -1,6 +1,9 @@
 import { createNestroApplication } from "@duongtrungnguyen/nestro";
+import { config } from "dotenv";
 
-import { AppModule } from "./app.module";
+import { AppModule } from "~app.module";
+
+config();
 
 async function bootstrap() {
   const app = await createNestroApplication(
@@ -14,6 +17,14 @@ async function bootstrap() {
         name: "gateway",
         port: 8080,
       },
+      gateway: {
+        swagger: {
+          path: "/docs",
+          title: process.env.APP_TITLE,
+          description: process.env.APP_DESCRIPTION,
+          version: process.env.APP_VERSION,
+        },
+      },
     },
     {
       rawBody: true,
@@ -22,4 +33,5 @@ async function bootstrap() {
 
   await app.listen();
 }
+
 bootstrap();

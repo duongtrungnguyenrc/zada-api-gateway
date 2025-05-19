@@ -1,11 +1,11 @@
-import { IRoutingConfig, ProxyModuleBuilder } from "@duongtrungnguyen/nestro";
+import { IGatewayConfig, ProxyModuleBuilder } from "@duongtrungnguyen/nestro";
 import { DynamicModule } from "@nestjs/common";
 
-export class GatewayConfig implements IRoutingConfig {
+export class GatewayConfig implements IGatewayConfig {
   build(builder: ProxyModuleBuilder): DynamicModule {
     return builder
       .httpRoute({
-        route: "/user{/*path}",
+        route: "/users{/*path}",
         service: "user",
       })
       .httpRoute({
@@ -15,6 +15,14 @@ export class GatewayConfig implements IRoutingConfig {
       .httpRoute({
         route: "/media{/*path}",
         service: "media",
+      })
+      .httpRoute({
+        route: "/shops{/*path}",
+        service: "shop",
+      })
+      .httpRoute({
+        route: "/products{/*path}",
+        service: "product",
       })
       .build();
   }
