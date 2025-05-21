@@ -1,9 +1,6 @@
 import { createNestroApplication } from "@duongtrungnguyen/nestro";
-import { config } from "dotenv";
 
 import { AppModule } from "~app.module";
-
-config();
 
 async function bootstrap() {
   const app = await createNestroApplication(

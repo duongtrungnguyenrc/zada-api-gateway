@@ -20,7 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@duongtrungnguyen/micro-commerce": "^0.0.31",
+    "@duongtrungnguyen/micro-commerce": "^0.0.37",
     "@duongtrungnguyen/nestro": "^0.1.24",
     "@keyv/redis": "^4.4.0",
     "@nestjs/cache-manager": "^3.0.1",
