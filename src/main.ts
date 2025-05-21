@@ -19,7 +19,8 @@ async function bootstrap() {
       },
       gateway: {
         swagger: {
-          path: "/docs",
+          path: "/",
+          jsonPath: "/json",
           title: process.env.APP_TITLE,
           description: process.env.APP_DESCRIPTION,
           version: process.env.APP_VERSION,
